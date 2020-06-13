@@ -12,11 +12,17 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@app/shared/*": [
+      "@libs/shared/*": [
         "libs/shared/*"
       ],
-      "@app/shared": [
+      "@libs/shared": [
         "libs/shared"
+      ],
+      "@app/first-aprox/*":[
+        "apps/first-aprox/*"
+      ],
+      "@app/first-aprox":[
+        "apps/first-aprox"
       ]
     }
   }
