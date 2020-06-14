@@ -18,11 +18,23 @@
       "@libs/shared": [
         "libs/shared"
       ],
-      "@app/first-aprox/*":[
+      "@app/first-aprox/*": [
         "apps/first-aprox/*"
       ],
-      "@app/first-aprox":[
+      "@app/first-aprox": [
         "apps/first-aprox"
+      ],
+      "@libs/second-aprox": [
+        "libs/second-aprox/src"
+      ],
+      "@libs/second-aprox/*": [
+        "libs/second-aprox/src/*"
+      ],
+      "@libs/first-aprox-lib": [
+        "libs/first-aprox-lib/src"
+      ],
+      "@libs/first-aprox-lib/*": [
+        "libs/first-aprox-lib/src/*"
       ]
     }
   }

@@ -1,11 +1,12 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/first-aprox/backend/src",
+  "sourceRoot": "apps/",
   "monorepo": true,
-  "root": "apps/first-aprox/backend",
+  "root": "apps/",
+  "entryFile": "bootstrap",
   "compilerOptions": {
     "webpack": true,
-    "tsConfigPath": "apps/first-aprox/backend/tsconfig.app.json"
+    "tsConfigPath": "apps/tsconfig.app.json"
   },
   "projects": {
     "first-aprox": {
@@ -24,6 +25,15 @@
       "sourceRoot": "libs/shared/",
       "compilerOptions": {
         "tsConfigPath": "libs/shared/tsconfig.lib.json"
+      }
+    },
+    "first-aprox-lib": {
+      "type": "library",
+      "root": "libs/first-aprox-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/first-aprox-lib/",
+      "compilerOptions": {
+        "tsConfigPath": "libs/first-aprox-lib/tsconfig.lib.json"
       }
     }
   }

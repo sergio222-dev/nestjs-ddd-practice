@@ -41,6 +41,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "26.0.1",
+    "jest-mock-extended": "^1.0.9",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.0",
@@ -63,13 +64,18 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/test/"
+      "<rootDir>/test/",
+      "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
       "@libs/shared/(.*)": "<rootDir>/libs/shared/$1",
       "@libs/shared": "<rootDir>/libs/shared/",
       "@app/first-aprox/(.*)": "<rootDir>/apps/first-aprox/$1",
-      "@app/first-aprox": "<rootDir>/apps/first-aprox/"
+      "@app/first-aprox": "<rootDir>/apps/first-aprox/",
+      "@libs/second-aprox/(.*)": "<rootDir>/libs/second-aprox/src/$1",
+      "@libs/second-aprox": "<rootDir>/libs/second-aprox/src",
+      "@libs/first-aprox-lib/(.*)": "<rootDir>/libs/first-aprox-lib/src/$1",
+      "@libs/first-aprox-lib": "<rootDir>/libs/first-aprox-lib/src"
     }
   }
 }

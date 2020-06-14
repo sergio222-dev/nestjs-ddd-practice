@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "../../dist/libs/first-aprox-lib"
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
+}

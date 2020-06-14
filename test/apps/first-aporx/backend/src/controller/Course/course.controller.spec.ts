@@ -18,9 +18,13 @@ describe('CourseController', () => {
 
   it('/PUT id', () => {
     return request(app.getHttpServer())
-      .put('/course/1')
+      .put('/course/55db512c-adf3-11ea-b06a-0242ac130003')
+      .send({
+        name: 'A course name',
+        duration: 'like 5 hours',
+      })
       .expect(201)
-      .expect({});
+      .expect('like 5 hours');
   });
 
   afterAll(async () => {
