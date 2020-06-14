@@ -1,4 +1,4 @@
-export default class Course {
+export class CreateCourseRequest {
   get id(): string {
     return this._id;
   }
@@ -10,10 +10,9 @@ export default class Course {
   get duration(): string {
     return this._duration;
   }
-
   constructor(
     private _id: string,
     private _name: string,
-    private _duration: string
+    private _duration: string,
   ) {}
 }

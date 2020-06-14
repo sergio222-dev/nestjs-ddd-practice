@@ -64,18 +64,15 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/test/",
-      "<rootDir>/libs/"
+      "<rootDir>/test/"
     ],
     "moduleNameMapper": {
-      "@libs/shared/(.*)": "<rootDir>/libs/shared/$1",
-      "@libs/shared": "<rootDir>/libs/shared/",
       "@app/first-aprox/(.*)": "<rootDir>/apps/first-aprox/$1",
       "@app/first-aprox": "<rootDir>/apps/first-aprox/",
-      "@libs/second-aprox/(.*)": "<rootDir>/libs/second-aprox/src/$1",
-      "@libs/second-aprox": "<rootDir>/libs/second-aprox/src",
-      "@libs/first-aprox-lib/(.*)": "<rootDir>/libs/first-aprox-lib/src/$1",
-      "@libs/first-aprox-lib": "<rootDir>/libs/first-aprox-lib/src"
+      "@libs/shared/(.*)": "<rootDir>/libs/shared/$1",
+      "@libs/shared": "<rootDir>/libs/shared/",
+      "@libs/first-aprox-lib/(.*)": "<rootDir>/libs/first-aprox-lib/$1",
+      "@libs/first-aprox-lib": "<rootDir>/libs/first-aprox-lib/"
     }
   }
 }
