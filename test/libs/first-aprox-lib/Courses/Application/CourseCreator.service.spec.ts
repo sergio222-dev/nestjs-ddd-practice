@@ -1,7 +1,7 @@
 import {CourseCreatorService} from '../../../../../libs/first-aprox-lib/Courses/Application/CourseCreator.service';
-import { mock }               from 'jest-mock-extended';
+import { mock } from 'jest-mock-extended';
 import CourseRepository
-                              from '../../../../../libs/first-aprox-lib/Courses/Domain/CourseRepository';
+                from '../../../../../libs/first-aprox-lib/Courses/Domain/Models/CourseRepository';
 
 describe('CourseCreator', () => {
   let courseCreatorTest: CourseCreatorService;

@@ -1,5 +1,5 @@
 import {Controller, Get}              from '@nestjs/common';
-import {RandomNumberGeneratorService} from '@libs/shared/infrastructure/RandomNumberGenerator.service';
+import {RandomNumberGeneratorService} from '@libs/shared/Infrastructure/RandomNumberGenerator.service';
 
 @Controller('/healtcheck')
 export class HealtCheckGetController {

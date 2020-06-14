@@ -1,5 +1,5 @@
-import { Module } from '@nestjs/common';
-import { RandomNumberGeneratorService } from './infrastructure/RandomNumberGenerator.service';
+import { Module }                       from '@nestjs/common';
+import { RandomNumberGeneratorService } from './Infrastructure/RandomNumberGenerator.service';
 
 @Module({
   providers: [RandomNumberGeneratorService],

@@ -1,5 +1,5 @@
-import CourseRepository from '../Domain/CourseRepository';
-import Course           from '../Domain/Course';
+import CourseRepository from '../Domain/Models/CourseRepository';
+import Course           from '../Domain/Models/Course';
 
 export class CourseCreatorService {
   constructor(
