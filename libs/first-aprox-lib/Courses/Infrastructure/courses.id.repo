@@ -1,1 +1,1 @@
-{"_id":"id","_name":"name","_duration":"duration"}
+{"_id":{"_value":"id"},"_name":"name","_duration":"duration"}

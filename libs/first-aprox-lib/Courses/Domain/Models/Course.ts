@@ -1,5 +1,7 @@
+import { CourseId } from "@libs/first-aprox-lib/Courses/Domain/Models/CourseId";
+
 export default class Course {
-  get id(): string {
+  get id(): CourseId {
     return this._id;
   }
 
@@ -12,7 +14,7 @@ export default class Course {
   }
 
   constructor(
-    private _id: string,
+    private _id: CourseId,
     private _name: string,
     private _duration: string
   ) {}

@@ -25,7 +25,9 @@
     "@nestjs/platform-express": "^7.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "uuid": "^8.1.0",
+    "uuid-validate": "^0.0.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
