@@ -2,7 +2,7 @@ import { CourseId }       from "@libs/first-aprox-lib/Courses/Domain/Models/Cour
 import { CourseName }     from "@libs/first-aprox-lib/Courses/Domain/Models/CourseName";
 import { CourseDuration } from "@libs/first-aprox-lib/Courses/Domain/Models/CourseDuration";
 
-export default class Course {
+export class Course {
   get id(): CourseId {
     return this._id;
   }

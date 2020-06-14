@@ -1,4 +1,4 @@
-import Course             from './Course';
+import { Course }             from './Course';
 import { CourseId }       from "@libs/first-aprox-lib/Courses/Domain/Models/CourseId";
 import { CourseName }     from "@libs/first-aprox-lib/Courses/Domain/Models/CourseName";
 import { CourseDuration } from "@libs/first-aprox-lib/Courses/Domain/Models/CourseDuration";
@@ -8,7 +8,6 @@ export class CourseMapper {
   public static fromString(courseString: string): Course {
     const courseRaw = JSON.parse(courseString);
     const {_id, _name, _duration} = courseRaw;
-    console.log(courseRaw);
     return new Course(
       new CourseId(_id._value),
       new CourseName(_name._value),

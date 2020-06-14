@@ -1,8 +1,8 @@
 import {Injectable}     from '@nestjs/common';
 import * as fs          from 'fs';
 import * as util        from 'util';
-import Course           from '../Domain/Models/Course';
-import CourseRepository from '../Domain/Models/CourseRepository';
+import { Course }           from '../Domain/Models/Course';
+import { CourseRepository } from '../Domain/Models/CourseRepository';
 import {CourseMapper}   from '../Domain/Models/CourseMapper';
 import { CourseId }     from "@libs/first-aprox-lib/Courses/Domain/Models/CourseId";
 
@@ -27,6 +27,11 @@ export class FileCourseRepository implements CourseRepository {
   private static fileName(id: string): string {
     const {FILE_PATH} = FileCourseRepository;
     return util.format('%s.%s.repo', FILE_PATH, id);
+  }
+
+  delete(id: CourseId): void {
+    const fileName = FileCourseRepository.fileName(id.value);
+    fs.unlinkSync(fileName);
   }
 
 }
