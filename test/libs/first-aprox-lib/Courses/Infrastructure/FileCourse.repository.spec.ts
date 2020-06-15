@@ -3,7 +3,7 @@ import { CourseId }             from "@libs/first-aprox-lib/Courses/Domain/Model
 import { CourseMother }         from "../Domain/CourseMother";
 import { CourseRepository }
                                 from "@libs/first-aprox-lib/Courses/Domain/Models/CourseRepository";
-import { FileCourseRepository } from "@libs/first-aprox-lib/Courses/Infrastructure/FileCourse.repository";
+import { FileCourseRepository } from "@libs/first-aprox-lib/Courses/Infrastructure/persistense/FileCourse.repository";
 
 describe("File Course Repository", () => {
   let repository: CourseRepository;
@@ -14,19 +14,19 @@ describe("File Course Repository", () => {
     course = CourseMother.random();
   });
 
-  it("should save course", () => {
-    repository.save(course);
+  it("should save course", async () => {
+    await repository.save(course);
   });
 
-  it("should return an existing course", () => {
-    expect(repository.search(course.id)).toEqual(course);
+  it("should return an existing course", async () => {
+    expect( await repository.search(course.id)).toEqual(course);
   });
 
-  it("should return nothing in non existing course", () => {
-    expect(repository.search(new CourseId("non-existing-id"))).toBeNull();
+  it("should return nothing in non existing course", async () => {
+    expect( await repository.search(new CourseId("non-existing-id"))).toBeNull();
   });
 
-  it("should delete an existing course", () => {
-    expect(() => repository.delete(course.id)).not.toThrowError();
+  it("should delete an existing course", async () => {
+    await expect(() => repository.delete(course.id)).not.toThrowError();
   })
 });
