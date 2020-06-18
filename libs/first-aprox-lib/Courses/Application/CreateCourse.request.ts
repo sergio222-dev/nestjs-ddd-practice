@@ -10,6 +10,7 @@ export class CreateCourseRequest {
   get duration(): string {
     return this._duration;
   }
+
   constructor(
     private _id: string,
     private _name: string,

@@ -1,12 +1,10 @@
 import { Course }           from "@libs/first-aprox-lib/Courses/Domain/Models/Course";
 import { CourseId }         from "@libs/first-aprox-lib/Courses/Domain/Models/CourseId";
-import { Repository }       from "mikro-orm";
-import { CourseMapper }     from "@libs/first-aprox-lib/Courses/Domain/Models/CourseMapper";
-import { CourseEntity }     from "@libs/first-aprox-lib/Courses/Domain/Entity/CourseEntity";
-import { MikroRepository }  from "@libs/shared/Infrastructure/Persistence/Mikro-ORM/MikroRepository";
 import { CourseRepository } from "@libs/first-aprox-lib/Courses/Domain/Models/CourseRepository";
+import { CourseMapper }    from "@libs/first-aprox-lib/Courses/Infrastructure/CourseMapper";
+import { CourseEntity }    from "@libs/first-aprox-lib/Courses/Domain/Entities/Course.entity";
+import { MikroRepository } from "@libs/shared/Infrastructure/Persistence/Mikro-ORM/MikroRepository";
 
-@Repository(CourseEntity)
 export class MikroCourseRepository extends MikroRepository<CourseEntity>
   implements CourseRepository {
 
@@ -18,7 +16,7 @@ export class MikroCourseRepository extends MikroRepository<CourseEntity>
 
   async search(id: CourseId): Promise<Course | null> {
     const entity = await this.em.findOne(CourseEntity, { id: id.value });
-    return entity ? CourseMapper.fromEntity(entity) : null;
+    return entity ?CourseMapper.fromEntity(entity) : null;
   }
 
   async delete(id: CourseId): Promise<void> {

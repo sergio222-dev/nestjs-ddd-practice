@@ -1,0 +1,12 @@
+import { CourseId }   from "@libs/first-aprox-lib/Courses/Domain/Models/CourseId";
+import { UuidMother } from "../../../../shared/Domain/UuidMother";
+
+export class CourseIdMother {
+  public static create(id: string): CourseId {
+    return new CourseId(id);
+  }
+
+  public static random(): CourseId {
+    return this.create(UuidMother.random());
+  }
+}

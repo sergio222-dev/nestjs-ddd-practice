@@ -1,29 +1,32 @@
-import { mock }                      from "jest-mock-extended";
-import { Course }                    from "@libs/first-aprox-lib/Courses/Domain/Models/Course";
-import { CourseMother }              from "../Domain/CourseMother";
-import { CourseRepository }
-                                     from "@libs/first-aprox-lib/Courses/Domain/Models/CourseRepository";
-import { CreateCourseRequest }       from "@libs/first-aprox-lib/Courses/Application/CreateCourse.request";
-import { CourseCreatorService }      from "@libs/first-aprox-lib/Courses/Application/CourseCreator.service";
-import { CreateCourseRequestMother } from "../Domain/CreateCourseRequestMother";
+import { suite, test }               from "@testdeck/jest";
+import { CourseCreatorService }      from "@libs/first-aprox-lib/Courses/Application/Create/CourseCreator.service";
+import { CreateCourseRequestMother } from "./CreateCourseRequestMother";
+import { CourseModuleUnitTestCase }  from "../CourseUnitTestCase";
+import { CourseMother }              from "../Domain/Models/CourseMother";
+import { CourseCreatedEventMother }  from "../Domain/Events/CourseCreatedEventMother";
 
-describe("CourseCreator", () => {
-  let courseCreatorTest: CourseCreatorService;
-  let repository: CourseRepository;
-  let createCourseRequest: CreateCourseRequest;
-  let course: Course;
+@suite('Course Creator Service Test')
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+class CourseCreatorServiceTestCase extends CourseModuleUnitTestCase {
 
-  beforeAll(async () => {
-    repository = mock<CourseRepository>();
-    courseCreatorTest = new CourseCreatorService(repository);
-    createCourseRequest = CreateCourseRequestMother.random();
-    course = CourseMother.fromRequest(createCourseRequest);
-  });
+  private _courseCreator: CourseCreatorService;
 
-  describe("Create", () => {
-    it("Should create a Course", () => {
-      courseCreatorTest.create(createCourseRequest);
-      expect(repository.save).toHaveBeenCalledWith(course);
-    });
-  });
-});
+  get courseCreator(): CourseCreatorService {
+    if (!this._courseCreator) {
+      this._courseCreator =
+        new CourseCreatorService(this.repository);
+    }
+    return this._courseCreator;
+  }
+
+  @test()
+  it_should_create_course(): void {
+    const request = CreateCourseRequestMother.random();
+    const course = CourseMother.fromRequest(request);
+    const domainEvent = CourseCreatedEventMother.fromCourse(course);
+    course.record(domainEvent);
+    this.courseCreator.create(request);
+    this.shouldSave(course);
+    // this.shouldPublishedDomainEvent([domainEvent]);
+  }
+}

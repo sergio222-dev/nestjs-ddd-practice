@@ -1,5 +1,5 @@
-import { Course }       from './Course';
-import { CourseId } from "@libs/first-aprox-lib/Courses/Domain/Models/CourseId";
+import { Course }   from "./Course";
+import { CourseId } from "./CourseId";
 
 export interface CourseRepository {
   save(course: Course): Promise<void>;

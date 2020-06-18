@@ -1,51 +1,53 @@
-import config
-                               from "@libs/first-aprox-lib/config/mikro-orm.config";
-import { Course }              from "@libs/first-aprox-lib/Courses/Domain/Models/Course";
-import { CourseMother }          from "../Domain/CourseMother";
-import { CourseEntity }          from "@libs/first-aprox-lib/Courses/Domain/Entity/CourseEntity";
-import { EntityManager }         from "mikro-orm";
-import { MikroOrmModule }        from "nestjs-mikro-orm";
-import { CourseRepository }      from "@libs/first-aprox-lib/Courses/Domain/Models/CourseRepository";
-import { Test, TestingModule } from "@nestjs/testing";
-import { MikroCourseRepository } from "@libs/first-aprox-lib/Courses/Infrastructure/persistense/MikroCourseRepository";
+import { suite, test }                        from "@testdeck/jest";
+import { CourseRepository }                   from "@libs/first-aprox-lib/Courses/Domain/Models/CourseRepository";
+import { CourseModuleInfrastructureTestCase } from "../CourseModuleInfrastructureTestCase";
+import { CourseEntity }                       from "@libs/first-aprox-lib/Courses/Domain/Entities/Course.entity";
+import { MikroCourseRepository }              from "@libs/first-aprox-lib/Courses/Infrastructure/persistense/MikroCourseRepository";
+import { CourseMother }                       from "../Domain/Models/CourseMother";
 
-describe('Mikro repository', () => {
-  let repository: CourseRepository;
-  const course: Course = CourseMother.random();
-  let em: EntityManager;
-  let moduleRef: TestingModule;
+@suite()
+export class CourseRepositoryTestCase
+  extends CourseModuleInfrastructureTestCase {
 
-  beforeAll(async () => {
-    moduleRef = await Test.createTestingModule({
-      imports: [
-        MikroOrmModule.forRoot(config)
-      ],
-    }).compile()
-    em = moduleRef.get<EntityManager>(EntityManager);
-    repository = new MikroCourseRepository(em, CourseEntity);
-  })
+  private _repository: CourseRepository;
 
-  it('Should not be null', () => {
-    expect(repository).not.toBeNull();
-  })
+  get repository(): CourseRepository {
+    if (!this._repository) {
+      this._repository = CourseModuleInfrastructureTestCase
+        .repository<CourseRepository>(MikroCourseRepository, CourseEntity);
+    }
+    return this._repository;
+  }
 
-  it(`Should save something with id ${course.id.value}`, async () => {
+  @test()
+  async it_should_save_a_course(): Promise<void> {
+    const course = CourseMother.random();
+    const repository = this.repository;
     await repository.save(course);
-  })
+  }
 
-  it(`Should search something with id ${course.id.value}`, async () => {
-    const result = await repository.search(course.id);
-    expect(result).toEqual(course);
-  })
+  @test()
+  async it_should_return_an_existent_course(): Promise<void> {
+    const {repository} = this;
+    const course = CourseMother.random();
+    await repository.save(course);
+    const returnedCourse = await repository.search(course.id);
+    expect(returnedCourse).toStrictEqual(course);
+  }
 
-  it(`Should delete something with id ${course.id.value}`, async () => {
+  @test()
+  async it_should_delete_an_existent_course(): Promise<void> {
+    const {repository} = this;
+    const course = CourseMother.random();
+    await repository.save(course);
     await repository.delete(course.id);
-  })
+  }
 
-  afterAll(async () => {
-    em.clear()
-    await em.getConnection().close();
-    await moduleRef.close();
-  })
-
-});
+  @test()
+  async it_should_return_null_on_non_existent_course(): Promise<void> {
+    const {repository} = this;
+    const course = CourseMother.random();
+    const nonExistentCourse = await repository.search(course.id);
+    expect(nonExistentCourse).toBe(null);
+  }
+}

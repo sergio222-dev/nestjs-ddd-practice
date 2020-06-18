@@ -1,5 +1,6 @@
-import {NestFactory} from '@nestjs/core';
-import {AppModule}   from '@app/first-aprox/backend/src/app.module';
+import { NestFactory }                    from "@nestjs/core";
+import { AppModule }                      from "@app/first-aprox/backend/src/app.module";
+import "reflect-metadata";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

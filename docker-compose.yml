@@ -5,11 +5,21 @@ services:
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: "admin"
       MYSQL_ROOT_HOST: "%"
     volumes:
     - "./etc/database:/docker-entrypoint-initdb.d"
     ports:
     - "3306:3306"
+  rabbitmq:
+    image: rabbitmq:alpine
+    volumes:
+    - "./etc/rabbitmq:/etc/rabbitmq"
+    environment:
+      RABBITMQ_DEFAULT_USER: "root"
+      RABBITMQ_DEFAULT_PASS: "admin"
+    ports:
+    - "5672:5672"
+    - "15672:15672"
 volumes:
   testDb:

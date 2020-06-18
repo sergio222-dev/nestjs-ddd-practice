@@ -3,7 +3,7 @@ import * as fs          from 'fs';
 import * as util            from 'util';
 import { Course }           from '../../Domain/Models/Course';
 import { CourseRepository } from '../../Domain/Models/CourseRepository';
-import {CourseMapper}       from '../../Domain/Models/CourseMapper';
+import {CourseMapper}       from '../CourseMapper';
 import { CourseId }         from "@libs/first-aprox-lib/Courses/Domain/Models/CourseId";
 
 @Injectable()
