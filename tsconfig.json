@@ -12,22 +12,22 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@libs/shared/*": [
+      "@libs/Shared/*": [
         "libs/shared/*"
       ],
-      "@libs/shared": [
+      "@libs/Shared": [
         "libs/shared"
       ],
-      "@app/first-aprox/*": [
+      "@app/First-aprox/*": [
         "apps/first-aprox/*"
       ],
-      "@app/first-aprox": [
+      "@app/First-aprox": [
         "apps/first-aprox"
       ],
-      "@libs/first-aprox-lib": [
+      "@libs/First-aprox-lib": [
         "libs/first-aprox-lib/"
       ],
-      "@libs/first-aprox-lib/*": [
+      "@libs/First-aprox-lib/*": [
         "libs/first-aprox-lib/*"
       ]
     }

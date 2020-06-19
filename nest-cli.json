@@ -9,31 +9,31 @@
     "tsConfigPath": "apps/tsconfig.app.json"
   },
   "projects": {
-    "first-aprox": {
+    "First-aprox": {
       "type": "application",
-      "root": "apps/first-aprox/backend",
+      "root": "apps/First-aprox/backend",
       "entryFile": "main",
-      "sourceRoot": "apps/first-aprox/backend/src",
+      "sourceRoot": "apps/First-aprox/backend/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/first-aprox/backend/tsconfig.app.json"
+        "tsConfigPath": "apps/First-aprox/backend/tsconfig.app.json"
       }
     },
-    "shared": {
+    "Shared": {
       "type": "library",
       "root": "libs/shared",
       "entryFile": "index",
-      "sourceRoot": "libs/shared/",
+      "sourceRoot": "libs/Shared/",
       "compilerOptions": {
-        "tsConfigPath": "libs/shared/tsconfig.lib.json"
+        "tsConfigPath": "libs/Shared/tsconfig.lib.json"
       }
     },
-    "first-aprox-lib": {
+    "First-aprox-lib": {
       "type": "library",
-      "root": "libs/first-aprox-lib",
+      "root": "libs/First-aprox-lib",
       "entryFile": "index",
-      "sourceRoot": "libs/first-aprox-lib/",
+      "sourceRoot": "libs/First-aprox-lib/",
       "compilerOptions": {
-        "tsConfigPath": "libs/first-aprox-lib/tsconfig.lib.json"
+        "tsConfigPath": "libs/First-aprox-lib/tsconfig.lib.json"
       }
     }
   }
