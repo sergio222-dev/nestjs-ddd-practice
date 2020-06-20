@@ -1,9 +1,9 @@
-import {  TestingModule }   from "@nestjs/testing";
-import { initializeTestDb } from "../../First-aprox-lib/Shared/Infrastructure/bin/create-schema.mikro";
+import {  TestingModule } from "@nestjs/testing";
+import { initializeDb }   from "@libs/Shared/Infrastructure/Persistence/Mikro-ORM/create-schema.mikro";
 
 export class ModuleInfrastructureTestCase {
   protected static module: TestingModule;
-  static async before(): Promise<void> {
-    await initializeTestDb();
+  static async before(settings): Promise<void> {
+    await initializeDb(settings);
   }
 }

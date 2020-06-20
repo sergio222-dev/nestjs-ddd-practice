@@ -14,7 +14,7 @@
     "start:debug": "cross-env NODE_ENV=development nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
+    "test": "cross-env NODE_ENV=test jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
@@ -98,12 +98,12 @@
       "<rootDir>/test/"
     ],
     "moduleNameMapper": {
-      "@app/first-aprox/(.*)": "<rootDir>/apps/first-aprox/$1",
-      "@app/first-aprox": "<rootDir>/apps/first-aprox/",
-      "@libs/shared/(.*)": "<rootDir>/libs/shared/$1",
-      "@libs/shared": "<rootDir>/libs/shared/",
-      "@libs/first-aprox-lib/(.*)": "<rootDir>/libs/first-aprox-lib/$1",
-      "@libs/first-aprox-lib": "<rootDir>/libs/first-aprox-lib/"
+      "@app/First-aprox/(.*)": "<rootDir>/apps/First-aprox/$1",
+      "@app/First-aprox": "<rootDir>/apps/First-aprox/",
+      "@libs/Shared/(.*)": "<rootDir>/libs/Shared/$1",
+      "@libs/Shared": "<rootDir>/libs/Shared/",
+      "@libs/First-aprox-lib/(.*)": "<rootDir>/libs/First-aprox-lib/$1",
+      "@libs/First-aprox-lib": "<rootDir>/libs/First-aprox-lib/"
     }
   }
 }

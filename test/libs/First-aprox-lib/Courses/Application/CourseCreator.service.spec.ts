@@ -1,5 +1,5 @@
 import { suite, test }               from "@testdeck/jest";
-import { CourseCreatorService }      from "libs/First-aprox-lib/Courses/Application/Create/CourseCreator.service";
+import { CourseCreatorService }      from "@libs/First-aprox-lib/Courses/Application/Create/CourseCreator.service";
 import { CreateCourseRequestMother } from "./CreateCourseRequestMother";
 import { CourseModuleUnitTestCase }  from "../CourseUnitTestCase";
 import { CourseMother }              from "../Domain/Models/CourseMother";

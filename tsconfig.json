@@ -13,22 +13,22 @@
     "incremental": true,
     "paths": {
       "@libs/Shared/*": [
-        "libs/shared/*"
+        "libs/Shared/*"
       ],
       "@libs/Shared": [
-        "libs/shared"
+        "libs/Shared"
       ],
       "@app/First-aprox/*": [
-        "apps/first-aprox/*"
+        "apps/First-aprox/*"
       ],
       "@app/First-aprox": [
-        "apps/first-aprox"
+        "apps/First-aprox"
       ],
       "@libs/First-aprox-lib": [
-        "libs/first-aprox-lib/"
+        "libs/First-aprox-lib/"
       ],
       "@libs/First-aprox-lib/*": [
-        "libs/first-aprox-lib/*"
+        "libs/First-aprox-lib/*"
       ]
     }
   }

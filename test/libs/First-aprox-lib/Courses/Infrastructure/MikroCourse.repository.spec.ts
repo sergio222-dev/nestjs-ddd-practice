@@ -9,16 +9,6 @@ import { CourseMother }                       from "../Domain/Models/CourseMothe
 export class CourseRepositoryTestCase
   extends CourseModuleInfrastructureTestCase {
 
-  private _repository: CourseRepository;
-
-  get repository(): CourseRepository {
-    if (!this._repository) {
-      this._repository = CourseModuleInfrastructureTestCase
-        .repository<CourseRepository>(MikroCourseRepository, CourseEntity);
-    }
-    return this._repository;
-  }
-
   @test()
   async it_should_save_a_course(): Promise<void> {
     const course = CourseMother.random();

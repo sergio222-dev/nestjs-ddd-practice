@@ -53,4 +53,8 @@ export class Loader {
       .map(k => [k, this.mergeSettings(k)])
       .map(([k, o]) => (): any => ({[k]: o}));
   }
+
+  retrieve(settingName: string): any {
+    return this.mergeSettings(settingName);
+  }
 }

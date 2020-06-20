@@ -1,9 +1,11 @@
-import { SettingScope }            from "@libs/Shared/Infrastructure/LoaderWithEnv";
+import { SettingScope }            from "@libs/Shared/Infrastructure/Loader";
 import { CourseEntity }            from "@libs/First-aprox-lib/Courses/Domain/Entities/Course.entity";
 import { ReflectMetadataProvider } from "mikro-orm";
 import { MikroOrmModuleOptions }   from "nestjs-mikro-orm";
+import { Provider }                from "@nestjs/common";
+import { CourseCreatorService }    from "@libs/First-aprox-lib/Courses/Application/Create/CourseCreator.service";
 
-export const Mikro = new SettingScope<MikroOrmModuleOptions>("Mikro",
+export const MikroSQL = new SettingScope<MikroOrmModuleOptions>("mikro",
   envSettings => ({
     port: parseInt(envSettings.MIKRO_ORM_PORT),
     host: envSettings.MIKRO_ORM_HOST,
@@ -18,3 +20,9 @@ export const Mikro = new SettingScope<MikroOrmModuleOptions>("Mikro",
     logger: (): void => {return;},
     entities: [CourseEntity]
   }));
+
+export const Providers = new SettingScope<{providers: Provider[]}>("providers", () => ({
+    providers: [
+      CourseCreatorService
+    ]
+}))
