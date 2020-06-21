@@ -3,6 +3,7 @@ import { MikroOrmModule }                 from "nestjs-mikro-orm";
 import { ConfigService }                  from "@nestjs/config";
 import { CourseEntity }                   from "@libs/First-aprox-lib/Courses/Domain/Entities/Course.entity";
 import { CourseCreatorService }           from "@libs/First-aprox-lib/Courses/Application/Create/CourseCreator.service";
+import { CqrsModule }                     from "@nestjs/cqrs";
 
 /**
  * Settings for First-aprox Bounded Context
@@ -28,6 +29,7 @@ import { CourseCreatorService }           from "@libs/First-aprox-lib/Courses/Ap
     // ConfigModule.forRoot({
     //   load: loader.retrieveSettings() // Settings for ConfigModule
     // }),
+    CqrsModule,
     MikroOrmModule.forRootAsync({
       useFactory: async (configService: ConfigService) =>
         await ({
