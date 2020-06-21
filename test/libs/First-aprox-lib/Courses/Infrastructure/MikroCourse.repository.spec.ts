@@ -28,6 +28,8 @@ export class CourseRepositoryTestCase
     const course = CourseMother.random();
     await repository.save(course);
     await repository.delete(course.id);
+    const returnedCourse = await repository.search(course.id);
+    expect(returnedCourse).not.toBe(course);
   }
 
   @test()
